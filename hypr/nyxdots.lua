@@ -80,6 +80,19 @@ hl.layer_rule({
     blur = true,
 })
 
+-- Standard Hyprland window-management binds. This config is written from
+-- scratch (not based on Hyprland's stock example config), so none of these
+-- exist unless added explicitly here — confirmed against Hyprland's own
+-- example/hyprland.lua and wiki.hypr.land/Configuring/Basics/Binds/.
+hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind("SUPER + P", hl.dsp.window.pseudo())
+hl.bind("SUPER + J", hl.dsp.layout("togglesplit"))
+hl.bind("SUPER + left", hl.dsp.focus({ direction = "left" }))
+hl.bind("SUPER + right", hl.dsp.focus({ direction = "right" }))
+hl.bind("SUPER + up", hl.dsp.focus({ direction = "up" }))
+hl.bind("SUPER + down", hl.dsp.focus({ direction = "down" }))
+
 -- Escape hatch for the nested test session — the host session is untouched.
 hl.bind("SUPER + SHIFT + Q", hl.dsp.exit())
 

@@ -1,6 +1,7 @@
 # NyxDots
 
 ![NyxDots screenshot](assets/screenshot.png)
+<sub>[Wallpaper Link](https://arkfs.arc360hub.com/files/wallpaper.png)<sub>
 
 A Hyprland desktop shell built with Quickshell. It has a floating top bar, a workspace switcher, a clock, weather, and a rofi app launcher. Colors and wallpaper can be set by hand or generated from your wallpaper. Everything is editable from the settings app, no restart needed.
 
