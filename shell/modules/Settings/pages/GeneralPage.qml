@@ -174,6 +174,95 @@ Item {
                     onClicked: Config.setClockFormat(true)
                 }
             }
+
+            Rectangle {
+                width: parent.width
+                height: 1
+                color: Theme.outline
+            }
+
+            Text {
+                text: "updates"
+                font.family: Theme.fontFamily
+                font.pixelSize: 13
+                color: Theme.text
+            }
+
+            Text {
+                text: "installed: " + UpdateService.installedVersion
+                font.family: Theme.fontFamily
+                font.pixelSize: 11
+                color: Theme.muted
+            }
+
+            Text {
+                visible: UpdateService.checkedOnce && UpdateService.errorMessage.length === 0
+                text: UpdateService.updateAvailable
+                    ? "latest: " + UpdateService.latestVersion + " (update available)"
+                    : "latest: " + UpdateService.latestVersion + " (up to date)"
+                font.family: Theme.fontFamily
+                font.pixelSize: 11
+                color: UpdateService.updateAvailable ? Theme.primary : Theme.muted
+            }
+
+            Text {
+                visible: UpdateService.errorMessage.length > 0
+                text: UpdateService.errorMessage
+                font.family: Theme.fontFamily
+                font.pixelSize: 11
+                color: Theme.danger
+            }
+
+            Text {
+                visible: UpdateService.updating
+                text: "updating, the shell will restart shortly..."
+                font.family: Theme.fontFamily
+                font.pixelSize: 11
+                color: Theme.primary
+            }
+
+            Row {
+                spacing: 10
+
+                HoverButton {
+                    width: 150
+                    height: 30
+                    radius: 8
+                    enabled: !UpdateService.checking && !UpdateService.updating
+                    opacity: enabled ? 1 : 0.5
+                    Text {
+                        anchors.centerIn: parent
+                        text: UpdateService.checking ? "checking..." : "check for updates"
+                        font.family: Theme.fontFamily
+                        font.pixelSize: 11
+                        color: Theme.primary
+                    }
+                    onClicked: UpdateService.checkForUpdates()
+                }
+
+                HoverButton {
+                    visible: UpdateService.updateAvailable
+                    width: 110
+                    height: 30
+                    radius: 8
+                    enabled: !UpdateService.updating
+                    opacity: enabled ? 1 : 0.5
+                    Rectangle {
+                        anchors.fill: parent
+                        radius: 8
+                        color: Theme.primary
+                        opacity: 0.15
+                    }
+                    Text {
+                        anchors.centerIn: parent
+                        text: UpdateService.updating ? "updating..." : "update now"
+                        font.family: Theme.fontFamily
+                        font.pixelSize: 11
+                        color: Theme.primary
+                    }
+                    onClicked: UpdateService.applyUpdate()
+                }
+            }
         }
     }
 }

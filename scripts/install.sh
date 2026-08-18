@@ -134,6 +134,18 @@ ok "seeded state/config.json, wrote hypr/keybinds.lua"
 python3 "$REPO_ROOT/scripts/generate-rofi-theme.py" >/dev/null
 ok "wrote the rofi launcher theme (state/rofi-theme.rasi)"
 
+REPO_SLUG="arc360alt/NyxDots-Hyprland"
+LATEST_TAG="$(curl -s -m 10 "https://api.github.com/repos/$REPO_SLUG/releases/latest" \
+    | python3 -c "import json,sys; print(json.load(sys.stdin).get('tag_name',''))" 2>/dev/null || true)"
+mkdir -p "$REPO_ROOT/state"
+if [ -n "$LATEST_TAG" ]; then
+    echo "$LATEST_TAG" > "$REPO_ROOT/state/version.txt"
+    ok "recorded installed version: $LATEST_TAG"
+else
+    echo "unreleased" > "$REPO_ROOT/state/version.txt"
+    info "no published releases found yet — installed version set to \"unreleased\""
+fi
+
 # ---- 3. try it now ----------------------------------------------------
 
 step "Try it"
