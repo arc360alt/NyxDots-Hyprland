@@ -191,7 +191,7 @@ EOF
 [Desktop Entry]
 Name=NyxDots
 Comment=Hyprland + Quickshell desktop shell (NyxDots)
-Exec=env NYXDOTS_SHELL_DIR=$REPO_ROOT/shell Hyprland -c $REPO_ROOT/hypr/nyxdots.lua
+Exec=env NYXDOTS_SHELL_DIR=$REPO_ROOT/shell start-hyprland -- -c $REPO_ROOT/hypr/nyxdots.lua
 Type=Application
 DesktopNames=Hyprland
 EOF
