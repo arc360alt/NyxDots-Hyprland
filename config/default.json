@@ -1,0 +1,43 @@
+{
+  "theme": {
+    "mode": "manual",
+    "wallpaper": "",
+    "colors": {
+      "background": "#0a0f0f",
+      "surface": "#131b1aE6",
+      "surfaceHigh": "#1d2827E6",
+      "primary": "#9bd0cc",
+      "text": "#dce8e6",
+      "muted": "#a2adac",
+      "accent": "#9bd0cc",
+      "danger": "#e2746c",
+      "outline": "#3f4a49"
+    }
+  },
+  "keybinds": {
+    "terminal": "SUPER, RETURN",
+    "browser": "SUPER, B",
+    "fileExplorer": "SUPER, E",
+    "launcher": "SUPER_L",
+    "settings": "SUPER, I",
+    "close": "SUPER, Q",
+    "fullscreen": "SUPER, F",
+    "floating": "SUPER, V",
+    "screenshot": ", Print",
+    "lock": "SUPER, L",
+    "nextWorkspace": "SUPER, mouse_down",
+    "prevWorkspace": "SUPER, mouse_up"
+  },
+  "customKeybinds": [],
+  "display": {
+    "scale": 1.0,
+    "use24Hour": false
+  },
+  "weather": {
+    "hasLocation": false,
+    "location": "",
+    "lat": 0,
+    "lon": 0,
+    "units": "metric"
+  }
+}
